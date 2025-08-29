@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', function() {
+Route::get('/about', function() {
     echo "About Me, Alfredo Mello";
 });
+
+Route::get('/main', [MainController::class, 'index']); // Irá acessar a rota no url main e acessar a função index
