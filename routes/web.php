@@ -11,4 +11,8 @@ Route::get('/about', function() {
     echo "About Me, Alfredo Mello";
 });
 
-Route::get('/main', [MainController::class, 'index']); // Irá acessar a rota no url main e acessar a função index
+Route::get('/main/{value}', [MainController::class, 'index']); // Irá acessar a rota no url main e acessar a função index
+
+Route::get('/page2/{value}', [MainController::class, 'page2']);
+
+Route::get('/page3/{value}', [MainController::class, 'page3']);

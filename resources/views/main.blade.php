@@ -10,6 +10,8 @@
 
 <body>
     <h1>View do Arquivo main</h1>
+    <hr>
+    <h3>O valor é : {{ $value }}</h3>
 </body>
 
 </html>
