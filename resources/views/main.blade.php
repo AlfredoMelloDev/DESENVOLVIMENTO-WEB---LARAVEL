@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="Pt-Br">
+@extends('layouts.main_layout') {{-- Irá fazer parte desta view ( pasta layout - View main_layout ) --}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Praticando com Laravel</title>
-</head>
-
-<body>
-    <h1>View do Arquivo main</h1>
+{{-- O conteúdo desta view que será exportado fica entre sessões - section('nome da section que irá ser exportada') --}}
+@section('conteudo')
+    <h1>Bem vindo a view Principal</h1>
     <hr>
-    <h3>O valor é : {{ $value }}</h3>
-</body>
-
-</html>
+    <h3>The Value is : {{ $value}}</h3>
+@endsection
