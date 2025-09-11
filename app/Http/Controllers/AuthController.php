@@ -15,16 +15,28 @@ class AuthController extends Controller
     // Quando se é enviado dados como um formulário, modal, etc utilizamos o Request cifrão request
     public function loginSubmit(Request $request)
     {
-        // Validação que será usada nos campos do formulário, criamos um array
+        //  Validação que será usada nos campos do formulário, criamos um array
         $request->validate(
             [
-                // Campos que eu quero que sejam verificados
-                'text_username' => 'required',
-                'text_password' => 'required'
+                // Campos que eu quero que sejam verificados, os tipos do valores permitidos e tamanhos
+                'text_username' => 'required|email',
+                'text_password' => 'required|min:6|max:16'
+            ],
+
+            // Campos de Erros caso não passem na validaçãos dos dados nos campos
+            [
+                // Mensagem de erro para o campo de usuário
+                'text_username.required' => 'O Usuário é obrigatório',
+                'text_username.email' => 'Usuário deve ser um email válido',
+
+                // Usamos min e max para tamanhos necessarios da inserção
+                'text_password.required' => 'Senha Obrigatória',
+                'text_password.min' => 'A senha deve ter no mínimo 6 dígitos',
+                'text_password.max' => 'A senha deve ter no máximo 16 dígitos'
             ]
         );
 
-        // Capturamos os dados enviados pelos inputs
+        // E se passaram pela validação os dados serão capturados e salvos nas variaveis .
         $username = $request->input('text_username');
         $password = $request->input('text_password');
 
