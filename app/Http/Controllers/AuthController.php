@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;      // DB é uma Facade que encapsula a funcionalidade de banco de dados do Laravel e quenos permite o uso dos seus comandos
 
 class AuthController extends Controller
 {
@@ -40,12 +41,22 @@ class AuthController extends Controller
         $username = $request->input('text_username');
         $password = $request->input('text_password');
 
+        // Depois da criação do banco de dados, iremos validar a conexão verificando se os dados foram enviados
+
+        try{
+            // método que irá fazer a conexão com o DB
+            DB::connection()->getPdo();
+            echo 'Conexão foi estabelecida !';
+        }catch(\PDOException $e) {
+            echo "Conexão Falhou : " . $e->getMessage();
+        }
+
         // Usamos este $request->input("name do input") para ver o valor que foi inserido neste campo .
         // echo $request->input("text_username");
         // echo "<br>";
         // echo $request->input("text_password");
 
-        echo 'Foi validado';
+        echo 'Conexão foi um sucesso ! Fim ';
     }
 
     public function logout()
