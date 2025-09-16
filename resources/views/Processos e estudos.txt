@@ -1,0 +1,10 @@
+Criamos uma migration usando este comando : php artisanm make:migration create_users_table e php artisan make:migration create_notes_table para criar as migrations
+Configuramos como queremos enviar as estrturas e seus tipos de dados
+Criamos uma migrate com sua estrutura e configurações, damos o comando para rodar esta migration usando este comando php artisan
+e com a estrtura enviada e configurada no banco de dados, criaremos um seeder que são dados que serão enviados para as tables no banco de dados .
+
+Usamos o comando php artisan make:seeder UsersTableSeeder para criar um arquivo na pasta database > seeders
+
+Os arquivos no Seeders servem para construir os dados que serão processados para uma respectiva tabela, usamos : UsersTableSeeder.php .
+
+Usaremos o comando : php artisan db:seed UsersTableSeeder para preencher as colunas do banco de dados com os dados

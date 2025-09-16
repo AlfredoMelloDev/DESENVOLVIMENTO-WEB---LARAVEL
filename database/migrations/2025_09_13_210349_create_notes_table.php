@@ -2,7 +2,11 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+
+// Usamos esta facade para acessar métodos estáticos relacionados a criação, alteração e exclusão de tabelas no banco de dados
+// O exemplo que será usado neste arquivo é para a criação da estrutura
 use Illuminate\Support\Facades\Schema;
+
 
 return new class extends Migration
 {
