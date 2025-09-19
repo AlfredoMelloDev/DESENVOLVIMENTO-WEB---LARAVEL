@@ -48,6 +48,13 @@
                                     <button type="submit" class="btn btn-secondary w-100">Login</button>
                                 </div>
                             </form>
+
+                            {{-- Caso haja erro no login, ativará o loginError e será retornado um loginError nesta sessão ocasionando a chamada desta mensagem --}}
+                            @if(session('loginError'))
+                                <div class="alert alert-danger text-center">
+                                    {{ session('loginError') }}
+                                </div>
+                            @endif
                         </div>
                     </div>
 

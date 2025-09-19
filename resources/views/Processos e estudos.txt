@@ -7,4 +7,30 @@ Usamos o comando php artisan make:seeder UsersTableSeeder para criar um arquivo 
 
 Os arquivos no Seeders servem para construir os dados que serão processados para uma respectiva tabela, usamos : UsersTableSeeder.php .
 
-Usaremos o comando : php artisan db:seed UsersTableSeeder para preencher as colunas do banco de dados com os dados
+Usaremos o comando : php artisan db:seed UsersTableSeeder para preencher as colunas do banco de dados com os dados configurados/ou que serão enviados atraves dos seeders
+
+criação do arquivo UserModel.php ( Model é a ponte entre o código e o banco de dados, cada model irá ter um ligação individual com uma tabela, neste caso com a tabela users )
+
+*** Sempre cuidar o nome das funcionalidades usando Letra maíuscula
+
+Ao criar um model, o nome deve ser igual ao da table no banco de dados
+
+ESTRUTURA DE UMA FUNÇÃO :
+- sobre o que será
+- Validações
+- puxar ou inserir dados
+- variaveis que estes dados serão inseridos ou guardados
+- validações se estas variáveis estão vazias ou com dados e fazer o processo de ok e errado.
+
+****************************************************
+A função de loginSubmit no controller se baseia neste processo :
+- na criação já inserimos nos parenteses o Request( É do FrameWork Laravel ) e a variavel $request sendo o que vai capturar em forma de array os dados que serão enviados através dos inputs do formulários
+
+- Dentro destes arrays irão os dados com as validações de ca
+
+usamos para caso de erro :
+        if(!$user){
+            return redirect()->back()->withInput()->with('loginError', 'Username ou Password incorretos ');
+        }
+
+Sessão é a parte atual de onde você no momento, caso haja uma ação que gere erro e tenha uma mensagem de erro nesta sessão irá disparar uma mensagem programada no controller
